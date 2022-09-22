@@ -7,7 +7,7 @@ namespace ExpensesTracker.Controllers
 {
     [ApiController]
     [Route("api/expenses")]
-    public class ExpensesController : ControllerBase
+    public class ExpensesController : Controller
     {
         private readonly IExpensesService _expencesService;
 
@@ -45,7 +45,7 @@ namespace ExpensesTracker.Controllers
             }
 
             var id = _expencesService.Create(dto);
-            return Created($"/api/restaurant/{id}", null);
+            return Created($"/api/expenses/{id}", null);
         }
 
         [HttpPut("{id}")]

@@ -11,6 +11,10 @@ namespace ExpensesTracker
             CreateMap<UpdateExpensesDto, Expenses>();
             CreateMap<Expenses, ExpensesDto>();
             CreateMap<CreateExpensesDto, Expenses>();
+
+            CreateMap<UpdateIncomingExpensesDto, IncomingExpenses>();
+            CreateMap<IncomingExpenses, IncomingExpensesDto>();
+            CreateMap<CreateIncomingExpensesDto, IncomingExpenses>();
         }
     }
 }

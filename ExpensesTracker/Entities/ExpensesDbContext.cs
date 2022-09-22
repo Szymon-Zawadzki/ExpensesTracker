@@ -8,9 +8,15 @@ namespace ExpensesTracker.Entities
             "Server = (localdb)\\mssqllocaldb; Database = ExpensesDb; Trusted_Connection = True;";
 
         public DbSet<Expenses> Expenses { get; set; }
+        public DbSet<IncomingExpenses> IncomingExpenses { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Expenses>()
+                .Property(r => r.Name)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<IncomingExpenses>()
                 .Property(r => r.Name)
                 .IsRequired()
                 .HasMaxLength(50);

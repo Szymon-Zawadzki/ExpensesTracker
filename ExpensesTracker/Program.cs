@@ -10,8 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IExpensesService, ExpensesService>();
+builder.Services.AddTransient<IIncomingExpensesService, IncomingExpensesService>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddDbContext<ExpensesDbContext>();
+
 
 builder.Services.AddCors(p => p.AddPolicy("corspolicy", builder =>
 {
