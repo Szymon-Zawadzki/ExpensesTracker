@@ -6,22 +6,22 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IExpensesService, ExpensesService>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddDbContext<ExpensesDbContext>();
 
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", builder =>
+{
+    builder.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader();
+}));
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
 
 if (app.Environment.IsDevelopment())
 {
@@ -31,7 +31,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthentication();
 app.UseHttpsRedirection();
-
+app.UseCors("corspolicy");
 app.UseAuthorization();
 
 app.MapControllers();

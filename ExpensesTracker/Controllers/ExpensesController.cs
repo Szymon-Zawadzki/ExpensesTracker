@@ -1,11 +1,13 @@
 ﻿using ExpensesTracker.Interfaces;
 using ExpensesTracker.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExpensesTracker.Controllers
 {
+    [ApiController]
     [Route("api/expenses")]
-    public class ExpensesController : Controller
+    public class ExpensesController : ControllerBase
     {
         private readonly IExpensesService _expencesService;
 
