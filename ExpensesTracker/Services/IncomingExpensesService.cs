@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using ExpensesTracker.Entities;
 using ExpensesTracker.Interfaces;
-using ExpensesTracker.Models;
+using ExpensesTracker.Models.IncomingExpenses;
 
 namespace ExpensesTracker.Services
 {
@@ -20,6 +20,9 @@ namespace ExpensesTracker.Services
             var expenses = _incomingExpensesDbContext
                 .IncomingExpenses.ToList();
             var expensesDto = _mapper.Map<List<IncomingExpensesDto>>(expenses);
+            expensesDto.Sort(delegate (IncomingExpensesDto x, IncomingExpensesDto y) {
+                return x.DateTime.CompareTo(y.DateTime);
+            });
             return expensesDto;
         }
 
@@ -90,6 +93,10 @@ namespace ExpensesTracker.Services
                 return null;
             }
 
+            if (dto.DateTime != null)
+            {
+                expenses.DateTime = dto.DateTime;
+            }
             if (dto.Name != "string")
             {
                 expenses.Name = dto.Name;

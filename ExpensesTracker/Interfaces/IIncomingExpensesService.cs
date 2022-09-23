@@ -1,4 +1,4 @@
-﻿using ExpensesTracker.Models;
+﻿using ExpensesTracker.Models.IncomingExpenses;
 
 namespace ExpensesTracker.Interfaces
 {

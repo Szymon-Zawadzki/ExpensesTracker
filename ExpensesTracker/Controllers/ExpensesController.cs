@@ -1,5 +1,5 @@
 ﻿using ExpensesTracker.Interfaces;
-using ExpensesTracker.Models;
+using ExpensesTracker.Models.Expenses;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 

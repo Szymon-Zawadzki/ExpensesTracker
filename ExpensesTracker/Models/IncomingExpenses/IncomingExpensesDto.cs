@@ -1,4 +1,4 @@
-﻿namespace ExpensesTracker.Models
+﻿namespace ExpensesTracker.Models.IncomingExpenses
 {
     public class IncomingExpensesDto
     {
@@ -6,5 +6,6 @@
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal? Price { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

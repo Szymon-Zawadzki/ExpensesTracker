@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ExpensesTracker.Entities;
-using ExpensesTracker.Models;
+using ExpensesTracker.Models.Expenses;
+using ExpensesTracker.Models.IncomingExpenses;
 
 namespace ExpensesTracker
 {

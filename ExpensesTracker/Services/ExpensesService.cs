@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using ExpensesTracker.Entities;
 using ExpensesTracker.Interfaces;
-using ExpensesTracker.Models;
+using ExpensesTracker.Models.Expenses;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -22,6 +22,9 @@ namespace ExpensesTracker.Services
             var expenses = _expensesDbContext
                 .Expenses.ToList();
             var expensesDto = _mapper.Map<List<ExpensesDto>>(expenses);
+            expensesDto.Sort(delegate(ExpensesDto x, ExpensesDto y) {
+                return x.DateTime.CompareTo(y.DateTime);
+            });
             return expensesDto;
         }
 
@@ -92,6 +95,10 @@ namespace ExpensesTracker.Services
                 return null;
             }
 
+            if (dto.DateTime != null)
+            {
+                expenses.DateTime = dto.DateTime;
+            }
             if (dto.Name != "string")
             {
                 expenses.Name = dto.Name;

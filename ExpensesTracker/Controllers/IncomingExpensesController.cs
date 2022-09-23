@@ -1,5 +1,5 @@
 ﻿using ExpensesTracker.Interfaces;
-using ExpensesTracker.Models;
+using ExpensesTracker.Models.IncomingExpenses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExpensesTracker.Controllers
