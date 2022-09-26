@@ -9,6 +9,7 @@ namespace ExpensesTracker.Entities
 
         public DbSet<Expenses> Expenses { get; set; }
         public DbSet<IncomingExpenses> IncomingExpenses { get; set; }
+        public DbSet<Resource> Resource { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Expenses>()
@@ -17,6 +18,11 @@ namespace ExpensesTracker.Entities
                 .HasMaxLength(50);
 
             modelBuilder.Entity<IncomingExpenses>()
+                .Property(r => r.Name)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Resource>()
                 .Property(r => r.Name)
                 .IsRequired()
                 .HasMaxLength(50);

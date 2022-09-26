@@ -11,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IExpensesService, ExpensesService>();
 builder.Services.AddTransient<IIncomingExpensesService, IncomingExpensesService>();
+builder.Services.AddTransient<IResourceServices, ResourceService>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddDbContext<ExpensesDbContext>();
 

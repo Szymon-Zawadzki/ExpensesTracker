@@ -2,6 +2,7 @@
 using ExpensesTracker.Entities;
 using ExpensesTracker.Models.Expenses;
 using ExpensesTracker.Models.IncomingExpenses;
+using ExpensesTracker.Models.Resource;
 
 namespace ExpensesTracker
 {
@@ -16,6 +17,10 @@ namespace ExpensesTracker
             CreateMap<UpdateIncomingExpensesDto, IncomingExpenses>();
             CreateMap<IncomingExpenses, IncomingExpensesDto>();
             CreateMap<CreateIncomingExpensesDto, IncomingExpenses>();
+
+            CreateMap<UpdateResourceDto, Resource>();
+            CreateMap<Resource, ResourceDto>();
+            CreateMap<CreateResourceDto, Resource>();
         }
     }
 }
